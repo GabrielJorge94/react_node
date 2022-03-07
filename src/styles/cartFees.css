@@ -1,0 +1,23 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+.cart-fees {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 30px;
+  line-height: 2;
+}
+
+.cart-total {
+  color: #172162;
+}
+
+.fees{
+  width: 95%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
