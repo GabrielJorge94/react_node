@@ -1,46 +1,18 @@
 import React, { useState } from 'react';
+import postalCode from '../styles/postalCode.css';
 
+const PostalCode = (props) => {
 
-const PostalCode = () => {
-  const [postalCode, setPostalCode] = useState('');
-
-  const estimatedDeliveryDate = () => {
-  //   const DELIVERY_DATES = [
-  //     {
-  //         postal: "V",
-  //         ids: [2],
-  //         estimatedDeliveryDate: "Nov 24, 2021"
-  //     },
-  //     {
-  //         postal: "V",
-  //         ids: [1,3],
-  //         estimatedDeliveryDate: "Nov 19, 2021"
-  //     },
-  //     {
-  //         postal: "M",
-  //         ids: [2,3],
-  //         estimatedDeliveryDate: "Nov 22, 2021"
-  //     },
-  //     {
-  //         postal: "M",
-  //         ids: [1],
-  //         estimatedDeliveryDate: "Dec 19, 2021"
-  //     },
-  //     {
-  //         postal: "K",
-  //         ids: [1,2,3],
-  //         estimatedDeliveryDate: "Dec 24, 2021"
-  //     },    
-  // ]
-    //send to backend to get estimated delivery date
-
-    //return estimated delivery date
-  }
-
+    const {postalCode, setPostalCode, getEstimatedDeliveryDate} = props;
 
   return (
-    <div>
-      <input type="text" value={ postalCode } onChange={(e) => setPostalCode(e.target.value)} />
+    <div className="postal-code-container">
+      <input className="postal-code-content" type="text" value={ postalCode } onChange={(e) => setPostalCode(e.target.value)} placeholder="Enter your Postal Code"/>
+      <button className="postal-code-button" onClick={() => getEstimatedDeliveryDate(postalCode)}>
+        <span className="postal-code-button-text">
+          Estimate delivery date
+        </span>
+      </button>
     </div>
   );  
 }

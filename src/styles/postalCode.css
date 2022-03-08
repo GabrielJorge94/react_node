@@ -1,0 +1,18 @@
+.postal-code-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+.postal-code-button {
+  background-color: #00a8ff;
+  border-color: #00a8ff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+} 

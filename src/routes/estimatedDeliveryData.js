@@ -30,11 +30,25 @@ const DELIVERY_DATES = [
   },    
 ]
 
-// router.use(cors({ origin: 'https://localhost:3001/estimated' }));
-
-// return lineItems and to localhost:3000
 router.get('/estimated', cors(), (req, res) => {
   res.send(DELIVERY_DATES);
+});
+
+router.get('/estimated/:postal', cors(), (req, res) => {
+    const postal = req.params.postal;
+    const deliveryDate = DELIVERY_DATES.filter(delivery => delivery.postal === postal[0].toUpperCase());
+    
+    res.status(200).send({
+        estimatedDelivery: deliveryDate.map(delivery => delivery)
+    });
+
+    res.status(500).send({
+        error: 'Internal server error'
+    });
+
+    res.status(404).send({
+        error: 'Delivery date not found on our database, please try another postal code'
+    });
 });
 
 module.exports = router;
