@@ -1,7 +1,6 @@
 const express = require('express');
-const app = express();
+const router = express.Router();
 const cors = require('cors');
-const port = 3001;
 
 const lineItems = [
   {
@@ -40,41 +39,9 @@ const lineItems = [
   },
 ];
 
-const DELIVERY_DATES = [
-  {
-      postal: "V",
-      ids: [2],
-      estimatedDeliveryDate: "Nov 24, 2021"
-  },
-  {
-      postal: "V",
-      ids: [1,3],
-      estimatedDeliveryDate: "Nov 19, 2021"
-  },
-  {
-      postal: "M",
-      ids: [2,3],
-      estimatedDeliveryDate: "Nov 22, 2021"
-  },
-  {
-      postal: "M",
-      ids: [1],
-      estimatedDeliveryDate: "Dec 19, 2021"
-  },
-  {
-      postal: "K",
-      ids: [1,2,3],
-      estimatedDeliveryDate: "Dec 24, 2021"
-  },    
-]
-
-app.use(cors({ origin: 'https://localhost:3001/items' }));
-
 // return lineItems and to localhost:3000
-app.get('/items', cors(), (req, res) => {
+router.get('/items', cors(), (req, res) => {
   res.send(lineItems);
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-});
+module.exports = router;

@@ -8,8 +8,7 @@ const CartItems = (props) => {
 
   const { removeItem } = useContext(GlobalContext);
 
-  const {image, swatchColor, swatchTitle, title, price} = props.item;
-  const { date } = props;
+  const {image, swatchColor, swatchTitle, title, price, estimatedDeliveryDate} = props.item;
 
   return (
     <div className="item-container">
@@ -25,7 +24,7 @@ const CartItems = (props) => {
       </div>
       <div className="item-info">
         <h3>${price}</h3>
-        <h3>Estimated Delivery Date: {date}</h3>
+        <h3>Estimated Delivery Date: {estimatedDeliveryDate}</h3>
         <button onClick={ () => removeItem(props.item) }>Remove</button>
       </div>
     </div>
